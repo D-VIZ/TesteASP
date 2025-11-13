@@ -1,3 +1,5 @@
+#teste
+
 namespace ProjetoASP.Pages.Movies
 {
     public class IndexModel : PageModel
