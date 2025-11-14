@@ -1,0 +1,59 @@
+@page
+@model ProjetoASP.Pages.Movies.TesteModel
+@{
+    ViewData["Title"] = "Teste";
+}
+
+<h1>Filmes</h1>
+<br />
+<form method="get">
+    <label asp-for="SearchString">Pesquisar Filme</label>
+    <input asp-for="SearchString" placeholder="Digite o nome do filme..." />
+
+    <select asp-for="Genre" asp-items="Model.GenresList">
+        <option value="">All</option>
+    </select>
+
+    <button type="submit" class="btn btn-secondary">Procurar</button>
+</form>
+
+<br />
+<table class="table text-light">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.Movies[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Movies[0].Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Movies[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Movies[0].Price)
+            </th>
+        </tr>
+
+    @foreach(var item in Model.Movies)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Price)
+            </td>
+        </tr>
+    }
+    </thead>
+</table>
+
+
+<hr />
